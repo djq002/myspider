@@ -1,0 +1,38 @@
+bank        银行
+video       视频网站 
+goods       物流公司
+car         汽车
+computer    电脑
+
+
+
+******************** 记忆表 **********************
+
+| collect_memory     |    种子收集记忆表——防止重复收集
+
+| crawl_memory       |    打开记忆表——防止重复打开
+
+
+
+从到间选取抓取源
+
+*************** 种子分类存储表 *****************
+
+
+| link_bank          | 银行
+| link_car           | 汽车
+| link_computer      | 计算机
+| link_goods         | 货运
+| link_video         | 视频网站
+
+
+
+
+************** 招聘信息连接分类收集表 *****************
+
+
+| job_bank           |银行
+| job_car            |汽车
+| job_computer       |计算机
+| job_goods          |货运
+| job_video          |视频

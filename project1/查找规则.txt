@@ -1,0 +1,86 @@
+
+
+
+----------------------------------- 查找规则 --------------------------------------------
+
+链接所在字符串的特征：招聘信息 高薪诚聘 诚聘英才 加盟** 加入我们 **诚聘  招贤纳士  工作机会 招聘精英
+
+招聘页的url特征： hr  career Careers job jobs joinus  join  Recruitment recruitment Recruit recruit zhaopin  zpxx(招聘信息的品一首字母)  CareerSite employer 
+                  campus Campus school（校园招聘）  yrln(用人理念)  rcjh(人才计划) rencaijihua(人才计划) rczp（人才招聘）zhaoxiannashi（招贤纳士）  zxnc（招贤纳才） zp（招聘）
+                  cpyc（诚聘英才）  Talent talent   rcsc(人才市场)   hrsection   retain(雇佣)   /JobList.php    rcqp(人才请聘)  /joinUs/     invite(邀请)     com.nbcb.recruit.auth.index.flow
+                  wyyp(我要应聘)  zpgg(招聘公告)   xyzp(校园招聘)  rencaizhaopin(人才招聘)    zxns(招贤纳士)  rlzy(人力资源) zxnc(招贤纳才)  rcln(人才理念) 
+cpyc(诚聘英才)
+
+wyyp|zpgg| xyzp|rencaizhaopin|zxns|rlzy|zxnc|rcln|cpyc
+
+
+
+
+最常用：hr career job|jobs joinus|join zhaopin recruit
+
+
+历史版本：
+
+.*(hr|Hr|career|Career|job|Job|joinus|Joinus|join|Join|recruit|Recruit|zhaopin|ZhaoPin|zpxx|ZPXX|employer|Employer|campus|Campus|school|School).*
+
+.*(hr|Hr)?(career|Career)?(job|Job)?(joinus|Joinus)?(join|Join)?(recruit|Recruit)?(zhaopin|ZhaoPin)?(zpxx|ZPXX)?(employer|Employer)?(campus|Campus)?(school|School).*
+
+.*(hr|Hr)?(career|Career)?(job|Job)?(joinus|Joinus)?(join|Join)?(recruit|Recruit)?(zhaopin|ZhaoPin)?(zpxx|ZPXX)?(employer|Employer)?(campus|Campus)?(school|School).*
+
+
+
+
+最终版：
+
+hr可能的情况：/hr.  /hr/  Hr    http://www.china-invs.cn/web001/hr/index.php   http://www.hrbcb.com.cn/index.do?method=news&ntype=170&tname=招聘公告     /hr_data.aspx
+join可能的情况：/join/     join.    http://www.scstock.com/join/JoinJobPosting.html   http://corp.caixin.com/joinus/   http://www.pchome.net/aboutus/joinus.html
+job可能的情况：http://www.gfhfzq.com.cn/About_Job.aspx   http://www.jinku.com/join_us.html   http://www.chinastock.com.cn/yhwz/about/jobShow.jsp  http://job.gw.com.cn
+               http://www.hongzhoukan.com/about/job01.html  http://job.10jqka.com.cn   http://www.55188.com/news/about/jobs.html
+zxnc招贤纳才：
+zp(招聘)：http://zp.dfzq.com.cn/KResume/index.jsp  http://www.szse.cn/main/aboutus/zp/xxgg/   http://www.westsecu.com/xbzq/zpyc.html?classid=000100010005
+          http://www.cqcbank.com/portal/zh_CN/rczp/shzp/index.html
+rczp（人才招聘）：http://www.95579.com/main/aboutUs/rczp/index.html  http://www.cindasc.com/osoa/views/zjxd/rczp/index.html  http://www.swsc.com.cn/xnsecu/rczp/rczp.jsp?classid=0001000100120006
+zpyc(招聘英才)：  http://www.ctsec.com/ctzq/jjct/cpyc/zcnx.html
+
+
+
+
+
+其他:http://www.foundersc.com/wzresnew/zpnew/gszp.shtml （zpnews|zpnew--招聘news)
+     http://www.fx678.com/corp/society.shtml（society）
+     http://zhaopin.pconline.com.cn
+     http://www.e5618.com/mzzq/gymz/zp_list.jsp?classid=00010001000100060012
+     http://recruit.bankofbeijing.com.cn
+     http://zhaopin.nbcb.cn:9080/recruit/com.nbcb.recruit.auth.index.flow
+     http://career.sina.com.cn
+     http://www.hurrytop.com/recruitment.html
+     http://www.dtw.com.cn/gydt-rczp.jsp
+     http://www.yundaex.com/rencaijihua.html
+     http://www.ttkdex.com/ttkdweb/hrsection/employinfo.html
+     http://www.ttkdex.com/ttkdweb/hrsection/employinfo.html
+
+
+
+.*(/hr\.|/hr/|/Hr|career|Career|/job|/Job|joinus|Joinus||/join/|join\.|Join|recruit|Recruit|zhaopin|ZhaoPin|zpxx|ZPXX|employer|Employer|campus|Campus|school|School){1}.*
+
+
+.*(/hr\.|\.hr|/hr/|Hr|career|Career|job|Job|jobs|JobList|/join/|Join|join\.|joinus|Joinus|recruit|Recruit|zhaopin|ZhaoPin|zpxx|ZPXX|rczp|RCZP|zpyc|ZPYC|zp|ZP|zxnc|ZXNC|yrln|YRLN|rcjh|RCJH|zhaoxiannaishi|employer|Employer|campus|Campus)*.
+
+hr (/hr\.|\.hr|/hr/|Hr)
+career (career|Career)
+job (job|Job|jobs)
+join (/join/|Join|join\.|joinus|Joinus)
+recruit (recruit|Recruit)
+zhaopin (zhaopin|ZhaoPin|zpxx|ZPXX|rczp|RCZP|zpyc|ZPYC|zp|ZP)
+zxnc (zxnc|ZXNC)
+zhaoxiannaishi (zhaoxiannaishi)
+yrln (yrln|YRLN)  
+rcjh (rcjh|RCJH)
+employer (employer|Employer)
+campus (campus|Campus)
+
+
+
+re.match(r'.*(hrsection|/hr\.|\.hr|/hr/|/Hr/|\.Hr|career|Career|job|Job|jobs|JobList|/join/|Join|join\.|joinus|Joinus|joinUs|recruit|Recruit|zhaopin|ZhaoPin|zpxx|ZPXX|rczp|RCZP|zpyc|ZPYC|/zp/|/ZP/|zxnc|ZXNC|yrln|YRLN|rcjh|RCJH|zhaoxiannaishi|rencaijihua|employer|Employer|employinfo|campus|Campus|Talent|talen|rcsc|retain|rcqp|zpgg|zp_list){1}.*',joburl)
+
+

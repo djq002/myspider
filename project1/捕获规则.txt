@@ -1,0 +1,13 @@
+judge1 = re.match(r'.*(hrsection|/hr\.|\.hr|/hr/|/Hr/|\.Hr|career|career\.|Career|job|job\.|Job|Job\.|jobs|JobList|/join/|Join|join\.|joinus|Joinus|joinUs|recruit|recruit\.|Recruit|Recruit\.|zhaopin|ZhaoPin|zpxx|ZPXX|rczp|RCZP|zpyc|ZPYC|/zp/|/ZP/|zxnc|ZXNC|yrln|YRLN|rcjh|RCJH|zhaoxiannaishi|rencaijihua|employer|Employer|employinfo|campus|Campus|Talent|talen|rcsc|retain|rcqp|zpgg|zp_list){1}\.{0,1}.*',joburl)
+
+
+
+re.match(r'.*(hrsection|/hr\.|\.hr|/hr/|/Hr/|\.Hr|hr|career|Career|job|Job|jobs|JobList|/join/|Join|joinus|Joinus|joinUs|recruit|Recruit|zhaopin|ZhaoPin|zpxx|ZPXX|rczp|RCZP|zpyc|ZPYC|/zp/|/ZP/|zxnc|ZXNC|yrln|YRLN|rcjh|RCJH|zhaoxiannaishi|rencaijihua|employer|Employer|employinfo|campus|Campus|Talent|talen|rcsc|retain|rcqp|zpgg|zp_list){1}\.?.*',url)
+
+
+re.match(r'http(s)?://.*(hrsection|/hr\.|\.hr|/hr/|/Hr/|\.Hr|hr|career|Career|job|Job|jobs|JobList|/join/|Join|joinus|Joinus|joinUs|recruit|Recruit|zhaopin|ZhaoPin|zpxx|ZPXX|rczp|RCZP|zpyc|ZPYC|/zp/|/ZP/|zxnc|ZXNC|yrln|YRLN|rcjh|RCJH|zhaoxiannaishi|rencaijihua|employer|Employer|employinfo|campus|Campus|Talent|talen|rcsc|retain|rcqp|zpgg|zp_list){1,}(\.|.)*,joburl)
+
+
+
+/?(\w*/)*(hr|Hr|career|Career|job|Job|JobList|joinus|Joinus|join|Join|recruit|Recruit|zhaopin|ZhaoPin|zpxx|ZPXX|rczp|RCZP|zpyc|ZPYC|zp|ZP|zxnc|ZXNC|yrln|YRLN|rcjh|RCJH|zhaoxiannaishi|rencaijihua|employer|Employer|employinfo|campus|Campus|Talent|talen|rcsc|retain|rcqp|zpgg|zp_list){1,}.*
+            

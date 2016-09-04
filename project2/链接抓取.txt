@@ -1,0 +1,100 @@
+#coding=utf8
+"""
+from tansuozhe:djq002
+"""
+import urllib2
+import HTMLParser
+from BeautifulSoup import BeautifulSoup
+from lxml import html
+import MySQLdb
+import re
+import sys
+import requests
+import socket
+#socket.setdefaulttimeout(10.0)
+reload(sys)
+sys.setdefaultencoding("utf-8")     # 重新加载系统并设置默认编码
+
+
+
+
+
+#------------------------------------------------------------------------------
+#---------------------------- 定义操作mysql函数 step1-------------------------
+#------------------------------------------------------------------------------
+def  mysqlexe(sql):
+   db = MySQLdb.connect('localhost','root','djq002','joblinks',charset='utf8')
+   cur = db.cursor()
+   cur.execute(sql)
+   result = cur.fetchall()
+   db.commit()
+   db.close()
+   return result
+   
+
+
+
+
+
+   
+
+#------------------------------------------------------------------------------
+#---------------------- 创建从网页上获url的类 step3 --------------------------
+#------------------------------------------------------------------------------
+
+# 模块抓取url
+class MParser(HTMLParser.HTMLParser):
+    mvalue = [] 
+    
+    def handle_starttag(self, tag, attrs):
+        if tag == 'a':
+            for name,value in attrs:
+               if name == 'href' and value.startswith('http')and value not in self.mvalue:   			        # 检查url是否以‘http’开头以及列表mvalue是否有重复的url
+                       exclude = re.match(r".*(baidu|BAIDU|BaiDu|google|GOOGLE).*",value) 					# 去除有关百度的url
+		       if exclude ==None:
+                           self.mvalue.append(value)
+
+
+
+lo1 = 'continue'	
+myparser =MParser()	
+content1 = []	
+table_list = ['link_bank','link_computer','link_car','link_goods','link_video']			   
+while 	lo1 !='exit':
+   url = raw_input('输入导航网址：')
+   op1 = urllib2.urlopen(url)
+   fdata1 = op1.read()
+   op1.close()
+   myparser.feed(fdata1)
+
+
+   
+# 输入分类表名
+   table1 = raw_input('输入分类表表名：')
+   while table1 not in table_list:   
+       table1 = raw_input('表格不存在，请重新输入：')	
+	   
+   for surl in myparser.mvalue:
+
+# 查询收集记忆库   
+       sql1 = 'select url from collect_memory'
+       col_memory = mysqlexe(sql1)
+       for line1 in col_memory:
+           content1.append(line1[1])
+
+# 将收集到url写入到数据库		   
+       if surl not content1:
+	       sql2 = 'insert into '+table1+'select '+str(surl)
+		   sql3 = 'insert into collect_memory select '+str(surl)
+		   mysqlexe(sql2)
+		   mysqlexe(sql3)
+		   
+# 清空列表		   
+   content1 = []		   
+   myparser.mvalue = []
+	   
+   
+   					   
+   
+   
+ 
